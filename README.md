@@ -1,7 +1,10 @@
-# Animals Image Classification
+# Animals Image Classification (CNN from Scratch)
 
-A PyTorch image classification project for classifying animals into
-10 categories.
+A PyTorch image classification project for classifying animals into 10 categories.
+
+This project builds a Convolutional Neural Network (CNN) from scratch to classify food images.
+
+The main goal is to understand how CNN works without using transfer learning.
 
 ## Classes
 
