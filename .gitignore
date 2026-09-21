@@ -9,7 +9,15 @@ __pycache__/
 *.py[cod]
 
 # Training outputs
-outputs/
+outputs/*
+!outputs/evaluation/
+!outputs/evaluation/**
+!outputs/figures/
+!outputs/figures/**
+
+# Ignore model checkpoints and TensorBoard event files
+outputs/checkpoints/
+outputs/tensorboard/
 
 # VS Code
 .vscode/
@@ -20,3 +28,9 @@ outputs/
 # Operating system
 .DS_Store
 Thumbs.db
+
+# Local test images
+images_to_test/
+
+# VS Code workspace files
+*.code-workspace

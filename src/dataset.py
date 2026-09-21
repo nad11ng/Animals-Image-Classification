@@ -47,8 +47,9 @@ class AnimalsDataset(Dataset):
     def __getitem__(self, index):
         image_path, label = self.samples[index]
 
+        # Convert every image to RGB because AnimalCNN expects 3 input channels.
         image = Image.open(image_path).convert("RGB") #đọc ảnh bằng thư viện Pillow => PIL image
-        # Vì PyTorch xử lý ảnh RGB nên phải convert về RGB
+
 
         if self.transform:
             image = self.transform(image)
@@ -61,17 +62,18 @@ def create_train_transform(image_size=224):
         transforms.Resize((image_size, image_size)),
         transforms.RandomHorizontalFlip(p=0.5),
         transforms.RandomRotation(10),
-        transforms.ToTensor(),
+        transforms.ToTensor()
     ])
 
 
 def create_evaluation_transform(image_size=224):
     return transforms.Compose([
         transforms.Resize((image_size, image_size)),
-        transforms.ToTensor(),
+        transforms.ToTensor()
     ])
     
-if __name__ == "__main__":
+    
+def main():
     train_data_path = "image_data/train"
     test_data_path = "image_data/test"
 
@@ -105,7 +107,7 @@ if __name__ == "__main__":
         print("Warning: Train and test class mappings are different.")
 
     # Load and inspect the first training image
-    image, label = train_dataset[15000]
+    image, label = train_dataset[0]
 
     print("\n===== FIRST SAMPLE =====")
     print(f"Image tensor shape: {image.shape}")
@@ -127,3 +129,6 @@ if __name__ == "__main__":
 
     for class_name, number_of_images in class_counts.items():
         print(f"{class_name}: {number_of_images}")
+        
+if __name__ == "__main__":
+    main()

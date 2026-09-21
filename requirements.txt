@@ -1,0 +1,11 @@
+torch
+torchvision
+Pillow
+numpy
+matplotlib
+seaborn
+scikit-learn
+tqdm
+tensorboard
+pytest
+gradio
